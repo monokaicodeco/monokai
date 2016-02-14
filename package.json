@@ -1,0 +1,30 @@
+{
+  "name": "Monokai_Code_Co",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.8.10"
+  },
+  "devDependencies": {
+    "bower": "^1.3.12",
+    "gulp": "^3.8.10",
+    "gulp-haml": "^0.1.4",
+    "gulp-ruby-sass": "^1.0.0-alpha.3",
+    "gulp-s3": "^0.3.0",
+    "gulp-watch": "^4.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:monokaicodeco/monokai.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/monokaicodeco/monokai/issues"
+  },
+  "homepage": "https://github.com/monokaicodeco/monokai"
+}

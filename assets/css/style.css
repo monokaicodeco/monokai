@@ -34,13 +34,13 @@ img { max-width: 100%; }
 /***** Top menu *****/
 
 nav {
-	display: none;
+	display: block;
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	z-index: 998;
-	background: #ce749d;
+	background: #CA2462;
 	font-size: 18px;
 	color: #fff;
     line-height: 32px;
@@ -52,6 +52,7 @@ nav a {
 	margin: 0 15px;
 	padding: 10px 0;
 	color: #fff;
+	font-family: "PT Mono", sans-serif;
 }
 nav a:hover { color: #fff; }
 nav a:focus { color: #fff; }
@@ -67,11 +68,11 @@ nav a:focus { color: #fff; }
 .hide-menu { top: -1px; }
 
 .show-menu a, .hide-menu a {
-	display: inline-block;
+	display: none;
 	width: 46px;
 	height: 48px;
 	padding-top: 11px;
-	background: #ce749d;
+	background: #CA2462;
 	font-size: 21px;
 	color: #fff;
 }
@@ -88,7 +89,7 @@ nav a:focus { color: #fff; }
 
 .inner-bg {
     padding: 120px 0 80px 0;
-    background: rgba(206, 116, 157, 0.5);
+    background: rgba(255, 255, 255, 0.6);
 }
 
 .top-content .phone {
@@ -142,6 +143,7 @@ nav a:focus { color: #fff; }
 .top-content .top-arrow {
 	margin-top: 50px;
 	font-size: 36px;
+	text-align: center;
 }
 
 .top-content .top-arrow i {
@@ -150,21 +152,22 @@ nav a:focus { color: #fff; }
 	height: 37px;
 	overflow: hidden;
 	cursor: pointer;
+	color: #232323;
 }
 
 .top-content .top-arrow i:before {
 	position: absolute;
 	top: 0;
-	left: 5px;
+	left: 30px;
 }
 
 .top-content .top-arrow i:after {
-	content: "learn more";
+	content: "scroll";
 	position: absolute;
 	top: -30px;
 	left: 0;
 	width: 100px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'PT Mono', sans-serif;
 	font-size: 18px;
 	font-weight: 300;
 }

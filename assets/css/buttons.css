@@ -1,0 +1,34 @@
+
+.button-1 {
+	display: inline-block;
+	height: 52px;
+	margin: 0;
+    padding: 0 20px;
+    border: 1px solid #fff;
+    font-size: 22px;
+    line-height: 48px;
+    color: #fff;
+}
+
+.button-1:hover {
+	background: #ce749d;
+	border: 1px solid #ce749d;
+	color: #fff;
+}
+
+.button-2 {
+	display: inline-block;
+	height: 52px;
+	margin: 0;
+    padding: 0 20px;
+    background: #ce749d;
+    font-size: 22px;
+    line-height: 48px;
+    color: #fff;
+}
+
+.button-2:hover {
+	background: #eee;
+    color: #888;
+}
+	

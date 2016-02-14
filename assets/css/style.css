@@ -106,13 +106,15 @@ nav a:focus { color: #fff; }
 
 .top-content .logo h1 {
 	margin: 0;
+	text-align: center;
 }
 
 .top-content .logo a {
 	display: inline-block;
-	width: 100%;
+	width: 40%;
 	height: auto;
 	background: url(../img/logo.png) center center no-repeat;
+	background-size: 100%;
 	text-indent: -99999px;
 }
 

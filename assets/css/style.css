@@ -109,8 +109,8 @@ nav a:focus { color: #fff; }
 
 .top-content .logo a {
 	display: inline-block;
-	width: 113px;
-	height: 113px;
+	width: 100%;
+	height: auto;
 	background: url(../img/logo.png) center center no-repeat;
 	text-indent: -99999px;
 }

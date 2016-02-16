@@ -160,16 +160,17 @@
       .row
         .col-sm-7.contact-form
           %h4 Send us a message
-          %form{action: "assets/contact.php", method: "post", role: "form"}
+          %form{action: "//formspree.io/riaz@monokaicode.co", method: "post", role: "form"}
             .form-group
               %label.sr-only{for: "contact-email"} Email
-              %input#contact-email.contact-email{name: "email", placeholder: "Email...", type: "text"}/
+              %input#contact-email.contact-email{name: "_replyto", placeholder: "Email...", type: "text"}/
             .form-group
-              %label.sr-only{for: "contact-subject"} Subject
-              %input#contact-subject.contact-subject{name: "subject", placeholder: "Subject...", type: "text"}/
+              %label.sr-only{for: "contact-subject"} Name
+              %input#contact-subject.contact-subject{name: "name", placeholder: "Your Name...", type: "text"}/
             .form-group
               %label.sr-only{for: "contact-message"} Message
               %textarea#contact-message.contact-message{name: "message", placeholder: "Message..."}
+              %input{ type: "text", name: "_gotcha", style: "display:none" }
             %button.btn{type: "submit"} Send
         .col-sm-5.contact-address
           %h4 Come visit us
@@ -177,10 +178,10 @@
           %h4 Address
           %p
             %i.fa.fa-map-marker>
-            Via Principe Amedeo 9, 10100, Torino, TO, Italy
+            151 Ted Turner Drive NW, #18, Atlanta, GA 30303
           %p
             %i.fa.fa-phone>
-            Phone: 0039 333 12 68 347
+            Phone: 678.636.9295
     / Footer
     %footer
       .container

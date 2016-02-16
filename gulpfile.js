@@ -45,17 +45,12 @@ gulp.task('copy_other', ['clean'], function() {
 });
 
 gulp.task('watch', ['clean'], function() {
-  gulp.watch('./src/**/*.haml', ['haml']);
-  gulp.watch('./src/styles/*.scss', ['scss']);
-  gulp.watch([
-    './src/**/*',
-    '!./src/**/*.scss',
-    '!./src/**/*.haml'
-  ], ['copy_other']);
+  gulp.watch('./src/**/*', 'build');
 });
 
 
-gulp.task('default', ['clean', 'haml', 'scss', 'copy_other', 'watch']);
+gulp.task('build', ['haml', 'scss', 'copy_other']);
+gulp.task('default', ['clean', 'build', 'watch']);
 
 gulp.task("deploy", function() {
   var aws_path = "./aws.json";

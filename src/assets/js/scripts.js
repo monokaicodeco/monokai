@@ -1,6 +1,6 @@
 
 jQuery(document).ready(function() {
-	
+
     /*
 	    Top menu
 	*/
@@ -27,7 +27,7 @@ jQuery(document).ready(function() {
 		else if(element_class == 'menu-testimonials') { scroll_to = $(".testimonials").offset().top - nav_height - 60; }
 		else if(element_class == 'menu-about-us') { scroll_to = $(".whos-behind").offset().top - nav_height - 60; }
 		else if(element_class == 'menu-contact') { scroll_to = $(".contact").offset().top - nav_height - 60; }
-		
+
 		if($(window).scrollTop() != scroll_to && element_class !== undefined) {
 			$('html, body').animate({scrollTop: scroll_to}, 1000);
 		}
@@ -37,10 +37,10 @@ jQuery(document).ready(function() {
 		var nav_height = $('nav').height();
 		var nav_display = $('nav').css('display');
 		var features_top = $('.features').offset().top;
-		
+
 		if(nav_display == 'block') { scroll_to = features_top - nav_height - 60; }
 		else if(nav_display == 'none') { scroll_to = features_top - 60; }
-		
+
 		if($(window).scrollTop() != scroll_to) {
 			$('html, body').animate({scrollTop: scroll_to}, 1000);
 		}
@@ -51,15 +51,15 @@ jQuery(document).ready(function() {
 		var nav_display = $('nav').css('display');
 		var feature_index = $('.features-box-1-icon').index($(this));
 		var feature_scroll_to = $('.single-feature-text').eq(feature_index).offset().top;
-		
+
 		if(nav_display == 'block') { scroll_to = feature_scroll_to - nav_height - 60; }
 		else if(nav_display == 'none') { scroll_to = feature_scroll_to - 60; }
-		
+
 		if($(window).scrollTop() != scroll_to) {
 			$('html, body').animate({scrollTop: scroll_to}, 1000);
 		}
 	});
-	
+
     /*
         Background slideshow
     */
@@ -68,13 +68,13 @@ jQuery(document).ready(function() {
     , "assets/img/backgrounds/2.jpg"
     , "assets/img/backgrounds/3.jpg"
     ], {duration: 3000, fade: 750});
-    
+
     /*
         Testimonials
     */
     $('.testimonial-active').html('<p>' + $('.testimonial-single:first p').html() + '</p>');
     $('.testimonial-single:first .testimonial-single-image img').css('opacity', '1');
-    
+
     $('.testimonial-single-image img').on('click', function() {
     	$('.testimonial-single-image img').css('opacity', '0.5');
     	$(this).css('opacity', '1');
@@ -84,7 +84,7 @@ jQuery(document).ready(function() {
     		$(this).fadeIn(400);
     	});
     });
-    
+
     /*
 	    Show latest tweets
 	*/
@@ -95,7 +95,7 @@ jQuery(document).ready(function() {
 		count: 5,
 		loading_text: 'loading ...'
 	});
-	
+
 	$('.latest-tweets .tweets .tweet_list li').append('<span class="tweet_nav"></span>');
 	$('.latest-tweets .tweets .tweet_list li:first .tweet_nav').css('background', '#fff');
 	$('.latest-tweets .tweets .tweet_list li .tweet_time').hide();
@@ -119,7 +119,7 @@ jQuery(document).ready(function() {
     var position = new google.maps.LatLng(45.067883, 7.687231);
     $('.contact-address .map').gmap({'center': position, 'zoom': 15, 'disableDefaultUI':true, 'callback': function() {
             var self = this;
-            self.addMarker({'position': this.get('map').getCenter() });	
+            self.addMarker({'position': this.get('map').getCenter() });
         }
     });
 
@@ -154,7 +154,7 @@ jQuery(document).ready(function() {
             }
         });
     });
-    
+
     /*
 	    Contact form
 	*/
@@ -167,7 +167,7 @@ jQuery(document).ready(function() {
 	    var postdata = $('.contact-form form').serialize();
 	    $.ajax({
 	        type: 'POST',
-	        url: 'assets/contact.php',
+	        url: '//formspree.io/riaz@monokaicode.co',
 	        data: postdata,
 	        dataType: 'json',
 	        success: function(json) {
@@ -189,6 +189,6 @@ jQuery(document).ready(function() {
 	    });
 	});
 
-    
+
 });
 

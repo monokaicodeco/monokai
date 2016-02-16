@@ -1,11 +1,9 @@
-/**
- * Created by niya on 15-01-30.
- */
 var gulp = require('gulp');
 var sass = require('gulp-ruby-sass');
 var haml = require('gulp-haml');
 var watch = require('gulp-watch');
 var s3 = require("gulp-s3");
+var del = require('del');
 var fs = require('fs');
 
 // Helper method
@@ -17,30 +15,47 @@ function fileExists(filePath) {
   }
 }
 
-gulp.task('scss', function() {
-    return sass('src/assets/styles/')
-        .on('error', function (err) {
-            console.error('Error!', err.message);
-        })
-        .pipe(gulp.dest('dist/assets/styles'));
+gulp.task('clean', function () {
+  return del('dist/**/*');
 });
-gulp.task('haml', function() {
+
+
+
+gulp.task('haml', ['clean'], function() {
+  debugger;
     gulp.src('./src/**/*.haml')
         .pipe(haml())
         .pipe(gulp.dest('./dist'))
 });
-gulp.task('copy_other', function() {
+
+gulp.task('scss', ['clean'], function() {
+  return sass('src/assets/styles/')
+    .on('error', function (err) {
+      console.error('Error!', err.message);
+    })
+    .pipe(gulp.dest('dist/assets/styles'));
+});
+
+gulp.task('copy_other', ['clean'], function() {
   gulp.src([
     './src/**/*',
     '!./src/**/*.scss',
     '!./src/**/*.haml'
   ]).pipe(gulp.dest('./dist'));
 });
-gulp.task('default', function() {
-    gulp.run('haml', 'scss', 'copy_other');
-    gulp.watch('./src/**/*.haml', ['haml']);
-    gulp.watch('./src/styles/*.scss', ['scss']);
+
+gulp.task('watch', ['clean'], function() {
+  gulp.watch('./src/**/*.haml', ['haml']);
+  gulp.watch('./src/styles/*.scss', ['scss']);
+  gulp.watch([
+    './src/**/*',
+    '!./src/**/*.scss',
+    '!./src/**/*.haml'
+  ], ['copy_other']);
 });
+
+
+gulp.task('default', ['clean', 'haml', 'scss', 'copy_other', 'watch']);
 
 gulp.task("deploy", function() {
   var aws_path = "./aws.json";

@@ -17,25 +17,29 @@ function fileExists(filePath) {
   }
 }
 
+gulp.task('scss', function() {
+    return sass('src/assets/styles/')
+        .on('error', function (err) {
+            console.error('Error!', err.message);
+        })
+        .pipe(gulp.dest('dist/assets/styles'));
+});
+gulp.task('haml', function() {
+    gulp.src('./src/**/*.haml')
+        .pipe(haml())
+        .pipe(gulp.dest('./dist'))
+});
+gulp.task('copy_other', function() {
+  gulp.src([
+    './src/**/*',
+    '!./src/**/*.scss',
+    '!./src/**/*.haml'
+  ]).pipe(gulp.dest('./dist'));
+});
 gulp.task('default', function() {
-    gulp.task('scss', function() {
-        return sass('src/styles/')
-            .on('error', function (err) {
-                console.error('Error!', err.message);
-            })
-            .pipe(gulp.dest('dist/styles'));
-    });
-    gulp.task('haml', function() {
-        gulp.src('./src/**/*.haml')
-            .pipe(haml())
-            .pipe(gulp.dest('./dist'))
-    });
-
-    gulp.task('default', function() {
-        gulp.run('haml', 'scss');
-        gulp.watch('./src/**/*.haml', ['haml']);
-        gulp.watch('./src/styles/*.scss', ['scss']);
-    });
+    gulp.run('haml', 'scss', 'copy_other');
+    gulp.watch('./src/**/*.haml', ['haml']);
+    gulp.watch('./src/styles/*.scss', ['scss']);
 });
 
 gulp.task("deploy", function() {

@@ -50,6 +50,7 @@ gulp.task('watch', ['clean'], function() {
 
 
 gulp.task('build', ['haml', 'scss', 'copy_other']);
+gulp.task('rebuild', ['clean', 'build']);
 gulp.task('default', ['clean', 'build', 'watch']);
 
 gulp.task("deploy", function() {

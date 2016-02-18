@@ -112,7 +112,7 @@ nav a:focus {
   display: inline-block;
   width: 40%;
   height: auto;
-  background: url(../img/logo.svgz) center center no-repeat;
+  background: url(../img/logo.svg) center center no-repeat;
   background-size: 100%;
   text-indent: -99999px; }
 

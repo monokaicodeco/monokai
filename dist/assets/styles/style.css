@@ -106,7 +106,10 @@ nav a:focus {
 
 .top-content .logo h1 {
   margin: 0;
-  text-align: center; }
+  text-align: center;
+  font-family: 'PT Mono', san-serif;
+  font-weight: bold;
+  color: #232323; }
 
 .top-content .logo a {
   display: inline-block;
@@ -123,7 +126,7 @@ nav a:focus {
   visibility: hidden; }
 
 .top-content .logo a:hover {
-  background-image: url(../img/logo-hover.png); }
+  background-image: url(../img/logo-hover.svg); }
 
 .top-content .description {
   margin: 40px 0 10px 0;

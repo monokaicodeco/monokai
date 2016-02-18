@@ -117,7 +117,7 @@ nav a:focus {
   text-indent: -99999px; }
 
 .top-content .logo a:before {
-  content: url(../img/logo-hover.png);
+  content: url(../img/logo-hover.svg);
   width: 0;
   height: 0;
   visibility: hidden; }

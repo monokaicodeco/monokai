@@ -17,7 +17,7 @@ a, a:hover, a:focus {
 
 h2, h3 {
   margin-top: 10px;
-  font-family: 'Oleo Script', cursive;
+  font-family: 'PT Mono', san-serif;
   font-size: 50px;
   font-weight: 400;
   line-height: 54px; }
@@ -162,7 +162,7 @@ nav a:focus {
   top: -30px;
   left: 0;
   width: 100px;
-  font-family: 'PT Mono', sans-serif;
+  font-family: 'PT Mono', san-serif;
   font-size: 18px;
   font-weight: 300; }
 
@@ -344,7 +344,7 @@ nav a:focus {
   text-align: center; }
 
 .testimonials h3 {
-  font-family: 'Oleo Script', cursive;
+  font-family: 'PT Mono', san-serif;
   font-size: 50px;
   font-weight: 400;
   color: #555;
@@ -399,7 +399,7 @@ nav a:focus {
   padding-bottom: 10px; }
 
 .whos-behind h3 {
-  font-family: 'Oleo Script', cursive;
+  font-family: 'PT Mono', san-serif;
   font-size: 50px;
   font-weight: 400;
   line-height: 54px; }
@@ -533,7 +533,7 @@ nav a:focus {
   text-align: center; }
 
 .contact h3 {
-  font-family: 'Oleo Script', cursive;
+  font-family: 'PT Mono', san-serif;
   font-size: 50px;
   font-weight: 400;
   color: #555;

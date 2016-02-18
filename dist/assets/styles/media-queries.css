@@ -29,6 +29,8 @@
 
   .top-content .text {
     text-align: center; }
+  .top-content .logo h1 a {
+    width: 80%; }
   .top-content .top-arrow i:before {
     left: 33.5px; }
   .top-content h2 {

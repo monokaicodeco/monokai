@@ -16,10 +16,9 @@
     top: auto;
     right: auto;
     z-index: auto; }
-
-  .hide-menu a {
-    height: 42px;
-    padding-top: 0; } }
+    .hide-menu a {
+      height: 42px;
+      padding-top: 0; } }
 @media (max-width: 767px) {
   body {
     padding-left: 0;
@@ -30,20 +29,17 @@
 
   .top-content .text {
     text-align: center; }
-
   .top-content .top-arrow i:before {
     left: 33.5px; }
-
-  .top-content h2, .features h3, .single-feature-text h3, .call-to-action-text h3,
-  .subscribe h3, .testimonials h3, .whos-behind h3, .contact h3 {
+  .top-content h2 {
     font-size: 40px;
     padding: 0 20px; }
 
-  .top-content .description, .features p, .single-feature-text p, .call-to-action-text p,
-  .subscribe p, .testimonials p, .whos-behind p, .contact p {
+  .features h3, .single-feature-text h3, .call-to-action-text h3, .subscribe h3, .testimonials h3, .whos-behind h3, .contact h3 {
+    font-size: 40px;
     padding: 0 20px; }
 
-  .features-box-1 p, .whos-behind-box-1 p, .latest-tweets p, .contact-address p {
+  .top-content .description, .features p, .single-feature-text p, .call-to-action-text p, .subscribe p, .testimonials p, .whos-behind p, .contact p, .features-box-1 p, .whos-behind-box-1 p, .latest-tweets p, .contact-address p {
     padding: 0 20px; }
 
   .contact-form, .contact-address {
@@ -66,7 +62,6 @@
 @media (max-width: 540px) {
   .subscribe form input {
     width: 90%; }
-
   .subscribe form button {
     width: 90%;
     margin-top: 10px; } }

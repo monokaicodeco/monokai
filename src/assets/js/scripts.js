@@ -87,7 +87,7 @@ jQuery(document).ready(function() {
 
     /*
 	    Google maps
-	*/
+    */
     var position = new google.maps.LatLng(33.7586946, -84.3923232);
     $('.contact-address .map').gmap({'center': position, 'zoom': 15, 'disableDefaultUI':true, 'callback': function() {
             var self = this;
@@ -95,9 +95,10 @@ jQuery(document).ready(function() {
         }
     });
 
-    /*
-        Subscription form
-    */
+
+	/*
+      Subscription form
+  */
     $('.success-message').hide();
     $('.error-message').hide();
 

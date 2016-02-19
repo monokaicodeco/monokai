@@ -125,7 +125,7 @@ nav {
     padding-top: 50px;
   }
   .logo-svg {
-    width: 50%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -149,6 +149,11 @@ nav {
     -ms-transform-origin: 50% 50%;
     -webkit-transform: rotate(0deg);
     -webkit-transform-origin: 50% 50%;
+  }
+  .logo-container{
+    width: 50%;
+    display: block;
+    margin: 0 auto;
   }
 
   .description {

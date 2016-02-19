@@ -29,7 +29,7 @@
 
   .top-content .text {
     text-align: center; }
-  .top-content .logo-container .logo-svg {
+  .top-content .logo-container {
     width: 80%; }
   .top-content .top-arrow i:before {
     left: 33.5px; }

@@ -160,11 +160,13 @@
             %p
               Need a website or graphic with some pizzazz? Find Niya. If she's not writing CSS or tinkering in Photoshop, you can find her by the coffee.
           .col-sm-4.whos-behind-box-1
-            .whos-behind-photo
+            .whos-behind-photo#chuck-bark-icon
               %img{alt: "", src: "assets/img/team/chuck.jpg"}/
               .whos-behind-social
-                %a{href: "mailto:sirchuckles@monokaicode.co"}
-                  %i.fa.fa-envelope
+                %audio#chuck-bark-audio
+                  %source(src="assets/audio/dog_bark.mp3")
+                  %source(src="assets/audio/dog_bark.ogg")
+                %i.fa.fa-paw
             %h4 Sir Chuckles
             %h5 Food Inspector
             %p

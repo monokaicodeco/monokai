@@ -1,27 +1,103 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <script src="https://simplewebrtc.com/latest-v2.js"></script>
-    <script>
-      var webrtc = new SimpleWebRTC({
-      // the id/element dom element that will hold "our" video
-      localVideoEl: 'localVideo',
-      // the id/element dom element that will hold remote videos
-      remoteVideosEl: 'remotesVideos',
-      // immediately ask for camera access
-      autoRequestMedia: true
-      });
+<script src="//cdn.webrtc-experiment.com/RTCPeerConnection-v1.5.js"> </script>
+<script src="//cdn.webrtc-experiment.com/video-conferencing/conference.js"> </script>
+<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
 
-      // we have to wait until it's ready
-      webrtc.on('readyToCall', function () {
-      // you can name it anything
-      webrtc.joinRoom('riaz');
-      });
-    </script>
+<button id="setup-new-room">Setup New Conference</button>
+<table style="width: 100%;" id="rooms-list"></table>
+<div id="videos-container"></div>
 
-  </head>
-  <body>
-    <video height="300" id="localVideo"></video>
-    <div id="remotesVideos"></div>
-  </body>
-</html>
+<script>
+  var config = {
+    openSocket: function (config) {
+      var channel = config.channel || location.href.replace(/\/|:|#|%|\.|\[|\]/g, '');
+      var socket = new Firebase('https://luminous-fire-3084.firebaseIO.com/' + channel);
+      socket.authWithPassword({
+        email    : "riaz.n.virani@gmail.com",
+        password : "webrtc"
+      }, function(error, authData) {
+        if (error) {
+          debugger;
+          console.log("Login Failed!", error);
+        } else {
+          console.log("Authenticated successfully with payload:", authData);
+        }
+      });
+      socket.channel = channel;
+      socket.on('child_added', function (data) {
+        config.onmessage(data.val());
+      });
+      socket.send = function (data) {
+        this.push(data);
+      }
+      config.onopen && setTimeout(config.onopen, 1);
+      socket.onDisconnect().remove();
+      return socket;
+    },
+    onRemoteStream: function (media) {
+      debugger;
+      var video = media.video;
+      video.setAttribute('controls', true);
+      video.setAttribute('id', media.stream.id);
+      videosContainer.insertBefore(video, videosContainer.firstChild);
+      video.play();
+    },
+    onRemoteStreamEnded: function (stream) {
+      var video = document.getElementById(stream.id);
+      if (video) video.parentNode.removeChild(video);
+    },
+    onRoomFound: function (room) {
+      var alreadyExist = document.querySelector('button[data-broadcaster="' + room.broadcaster + '"]');
+      if (alreadyExist) return;
+
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td><strong>' + room.roomName + '</strong> shared a conferencing room with you!</td>' +
+              '<td><button class="join">Join</button></td>';
+      roomsList.insertBefore(tr, roomsList.firstChild);
+
+      var joinRoomButton = tr.querySelector('.join');
+      joinRoomButton.setAttribute('data-broadcaster', room.broadcaster);
+      joinRoomButton.setAttribute('data-roomToken', room.broadcaster);
+      joinRoomButton.onclick = function () {
+        this.disabled = true;
+
+        var broadcaster = this.getAttribute('data-broadcaster');
+        var roomToken = this.getAttribute('data-roomToken');
+        captureUserMedia(function () {
+          conferenceUI.joinRoom({
+            roomToken: roomToken,
+            joinUser: broadcaster
+          });
+        });
+      };
+    }
+  };
+
+  var conferenceUI = conference(config);
+  var videosContainer = document.getElementById('videos-container') || document.body;
+  var roomsList = document.getElementById('rooms-list');
+
+  document.getElementById('setup-new-room').onclick = function () {
+    this.disabled = true;
+    captureUserMedia(function () {
+      conferenceUI.createRoom({
+        roomName: 'Anonymous'
+      });
+    });
+  };
+
+  function captureUserMedia(callback) {
+    var video = document.createElement('video');
+    video.setAttribute('autoplay', true);
+    video.setAttribute('controls', true);
+    videosContainer.insertBefore(video, videosContainer.firstChild);
+
+    getUserMedia({
+      video: video,
+      onsuccess: function (stream) {
+        config.attachStream = stream;
+        video.setAttribute('muted', true);
+        callback();
+      }
+    });
+  }
+</script>

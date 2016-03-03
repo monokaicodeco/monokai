@@ -186,13 +186,13 @@
           %form{action: "//formspree.io/riaz@monokaicode.co", method: "post", role: "form"}
             .form-group
               %label.sr-only{for: "contact-email"} Email
-              %input#contact-email.contact-email{name: "_replyto", placeholder: "Email...", type: "text"}/
+              %input#contact-email.contact-email{name: "_replyto", placeholder: "Email...", type: "text", required: "true"}/
             .form-group
               %label.sr-only{for: "contact-subject"} Name
-              %input#contact-subject.contact-subject{name: "name", placeholder: "Your Name...", type: "text"}/
+              %input#contact-subject.contact-subject{name: "name", placeholder: "Your Name...", type: "text", required: "true"}/
             .form-group
               %label.sr-only{for: "contact-message"} Message
-              %textarea#contact-message.contact-message{name: "message", placeholder: "Message..."}
+              %textarea#contact-message.contact-message{name: "message", placeholder: "Message...", required: "true"}
               %input{ type: "text", name: "_gotcha", style: "display:none" }
             %button.btn{type: "submit"} Send
         .col-sm-5.contact-address

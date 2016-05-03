@@ -113,7 +113,7 @@ jQuery(document).ready(function () {
   /*
    Google maps
    */
-  var position = new google.maps.LatLng(33.7586946, -84.3923232);
+  var position = new google.maps.LatLng(33.795368, -84.4016772);
   $('.contact-address .map').gmap({
     'center': position, 'zoom': 15, 'disableDefaultUI': true, 'callback': function () {
       var self = this;

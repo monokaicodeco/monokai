@@ -193,7 +193,8 @@
             .form-group
               %label.sr-only{for: "contact-message"} Message
               %textarea#contact-message.contact-message{name: "message", placeholder: "Message...", required: "true"}
-              %input{ type: "text", name: "_gotcha", style: "display:none" }
+            %input{ type: "text", name: "_gotcha", style: "display:none" }
+            %input{ type: "hidden", name: "_next", value: "/thanks.html" }
             %button.btn{type: "submit"} Send
         .col-sm-5.contact-address
           %h4 Come visit us

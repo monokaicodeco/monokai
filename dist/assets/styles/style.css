@@ -572,3 +572,7 @@ footer {
 
 .footer-social {
   text-align: right; }
+
+.center-text {
+  display: block;
+  text-align: center; }

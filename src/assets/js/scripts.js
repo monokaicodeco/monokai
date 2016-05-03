@@ -95,22 +95,6 @@ jQuery(document).ready(function () {
   ], {duration: 3000, fade: 750});
 
   /*
-   Testimonials
-   */
-  $('.testimonial-active').html('<p>' + $('.testimonial-single:first p').html() + '</p>');
-  $('.testimonial-single:first .testimonial-single-image img').css('opacity', '1');
-
-  $('.testimonial-single-image img').on('click', function () {
-    $('.testimonial-single-image img').css('opacity', '0.5');
-    $(this).css('opacity', '1');
-    var new_testimonial_text = $(this).parent('.testimonial-single-image').siblings('p').html();
-    $('.testimonial-active p').fadeOut(300, function () {
-      $(this).html(new_testimonial_text);
-      $(this).fadeIn(400);
-    });
-  });
-
-  /*
    Google maps
    */
   var position = new google.maps.LatLng(33.795368, -84.4016772);

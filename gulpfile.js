@@ -22,7 +22,6 @@ gulp.task('clean', function () {
 
 
 gulp.task('haml', ['clean'], function() {
-  debugger;
     gulp.src('./src/**/*.haml')
         .pipe(haml())
         .pipe(gulp.dest('./dist'))

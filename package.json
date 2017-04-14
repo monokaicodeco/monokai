@@ -16,6 +16,7 @@
     "gulp-watch": "^4.1.0"
   },
   "scripts": {
+    "gulp": "./node_modules/.bin/gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
